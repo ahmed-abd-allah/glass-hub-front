@@ -24,7 +24,7 @@ const getLocations = () => {
     locations.value = []
     if (response) {
       locations.value = response.data
-      toast.success("got All Articles ", {
+      toast.success("got All locations ", {
         position: toast.POSITION.TOP_CENTER,
       })
     } else {

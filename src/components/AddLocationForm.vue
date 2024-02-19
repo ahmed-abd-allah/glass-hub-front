@@ -42,21 +42,19 @@ const rules = {
   required: value => !!value || 'Field is required',
 };
 const createlocation = imageUrl => {
-  selectedLocation.value.imageUrl = imageUrl
   const locationData = {
     title: title.value,
     fileUrl: imageUrl,
-    lat: selectedLocation.value.lat,
-    lon: selectedLocation.value.lng
+    lat: (selectedLocation.value.lat).toString(),
+    lng: (selectedLocation.value.lng).toString()
   };
   locationsApi.createLocation(locationData).then(response => {
 
-    if (response.data) {
+    if (response) {
 
       toast.success("location created ", {
         position: toast.POSITION.TOP_CENTER,
       })
-      // emit('submit', locationData); // Assuming you have defined emit somewhere
 
     } else {
       toast.error("Some Thing is wrong!", {
@@ -84,7 +82,6 @@ const uploadImage = () => {
 
 const handleMapClick = (event) => {
   selectedLocation.value = { lat: event.latLng.lat(), lng: event.latLng.lng() };
-  console.error('Please select a location on the map.' + selectedLocation.value.lat);
 };
 </script>
   
