@@ -25,7 +25,7 @@
 </template>
   
 <script setup>
-import { ref } from 'vue';
+import { ref, defineEmits } from 'vue';
 import { GoogleMap, Marker } from 'vue3-google-map';
 // eslint-disable-next-line no-unused-vars
 import imagesApi from '@/apiServices/imagesApi';
@@ -41,6 +41,8 @@ const selectedLocation = ref(null);
 const rules = {
   required: value => !!value || 'Field is required',
 };
+const emit = defineEmits(['getLocations'])
+
 const createlocation = imageUrl => {
   const locationData = {
     title: title.value,
@@ -51,7 +53,7 @@ const createlocation = imageUrl => {
   locationsApi.createLocation(locationData).then(response => {
 
     if (response) {
-
+      emit('getLocations')
       toast.success("location created ", {
         position: toast.POSITION.TOP_CENTER,
       })

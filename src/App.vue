@@ -2,7 +2,7 @@
   <v-app>
     <v-main>
       <v-container>
-        <AddLocationForm @submit="submitLocation" />
+        <AddLocationForm @getLocations="getLocations" />
         <GoogleMap v-if="locations.length > 0" :locations="locations" />
       </v-container>
     </v-main>
@@ -42,7 +42,5 @@ onMounted(() => {
 })
 
 
-const submitLocation = (locationData) => {
-  locations.value.push(locationData);
-};
+
 </script>

@@ -1,5 +1,7 @@
 # glass-hub-front
 
+project link
+https://glass-hub-front.vercel.app/
 Vue.js Location Tracker App
 Overview
 This Vue.js application allows users to add locations to a map and visualize them. Users can input the title of the location, upload an image, and click on the map to select the location. The application integrates with Google Maps API for map functionalities and Vue3 Toastify for notification messages.
